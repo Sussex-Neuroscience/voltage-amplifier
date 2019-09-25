@@ -65,9 +65,9 @@ void stim_on() {
   mappedOut = map(int(stimAmp*100), 55, 275, 0, 4095);
   for (int i=0; i <= numRep; i++){
     digitalWrite(arduinoLED, HIGH);
-    analogWrite(DAC1,mappedOut);
+    analogWrite(DACport,mappedOut);
     delay(stimDur);
-    analogWrite(DAC1,0);
+    analogWrite(DACport,0);
     digitalWrite(arduinoLED, LOW);
     delay(stimDur);
   }// end for
