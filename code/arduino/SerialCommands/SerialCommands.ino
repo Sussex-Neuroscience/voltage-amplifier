@@ -1,5 +1,5 @@
 // Code to set and start electrical stimulation using an Arduino DUE and BIOPAC system
-// CC BY SA 4.0 20190924 
+// CC BY SA 4.0 20190924
 // Chagas AM.
 // Based on Demo Code for SerialCommand Library by Steven Cogswell May 2011
 
@@ -10,12 +10,14 @@
 long int stimDur = 0;
 float stimAmp = 0.55;
 int mappedOut = 0;
-
+int numRep = 1;
 SerialCommand sCmd;     // The demo SerialCommand object
+int DACport = DAC0;
 
 void setup() {
   pinMode(arduinoLED, OUTPUT);      // Configure the onboard LED for output
   pinMode (DAC1,OUTPUT);
+  pinMode (DAC0,OUTPUT);
   digitalWrite(arduinoLED, LOW);    // default to LED off
   analogWriteResolution(12);         // set the resolution to 12, since we are using the DAC ports
 
@@ -24,8 +26,10 @@ void setup() {
   // Setup callbacks for SerialCommand commands
   sCmd.addCommand("ON",    LED_on);          // Turns LED on
   sCmd.addCommand("OFF",   LED_off);         // Turns LED off
-  sCmd.addCommand("DUR",   duration);        // stimulus duration
-  sCmd.addCommand("AMP",   amplitude);       // stimulus amplitude
+  sCmd.addCommand("DUR",   duration);        // stimulus duration (milliseconds)
+  sCmd.addCommand("AMP",   amplitude);       // stimulus amplitude (amps)
+  sCmd.addCommand("REP",   repetitions);       // nuber of trains
+  sCmd.addCommand("PORT",   port);          // Turns LED on
   sCmd.addCommand("GO",    stim_on);         // Start stimulation
   sCmd.addCommand("HELLO", sayHello);        // Echos the string argument back
   sCmd.addCommand("P",     processCommand);  // Converts two arguments to integers and echos them back
@@ -53,19 +57,22 @@ void stim_on() {
   Serial.print("Duration "); Serial.print(stimDur); Serial.println(" milliseconds");
   Serial.print("Analog output "); Serial.print(stimAmp); Serial.println(" Volts");
   Serial.println("stim on");
-  
-  digitalWrite(arduinoLED, HIGH);
+
+
   // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
   mappedOut = map(int(stimAmp*100), 55, 275, 0, 4095);
-  analogWrite(DAC1,mappedOut);
-  delay(stimDur);
-  analogWrite(DAC1,0);
-  digitalWrite(arduinoLED, LOW);
-  
+  for (int i=0; i <= numRep; i++){
+    digitalWrite(arduinoLED, HIGH);
+    analogWrite(DAC1,mappedOut);
+    delay(stimDur);
+    analogWrite(DAC1,0);
+    digitalWrite(arduinoLED, LOW);
+    delay(stimDur);
+  }// end for
   Serial.println("stim off");
-  
+
 }
 
 void sayHello() {
@@ -79,11 +86,41 @@ void sayHello() {
     Serial.println("Hello, whoever you are");
   }
 }
+void port() {
+  char *arg;
+  arg = sCmd.next();    // Get the next argument from the SerialCommand object buffer
+  if (arg != NULL) {    // As long as it existed, take it
+    Serial.print("PORT ");
+    Serial.println(arg);
+    DACport = atoi(arg);
+  }
+  else {
+    Serial.println("No port selected! defaulting to 0");
+    DACport = 0;
+  }
+}
+void repetitions()) {
+  char *arg;
+  int aNumber;
+
+  arg = sCmd.next();    // Get the next argument from the SerialCommand object buffer
+  if (arg != NULL) {    // As long as it existed, take it
+    Serial.print("number of trains: ");
+    Serial.print(arg);
+
+    aNumber = atoi(arg);    // Converts a char string to an integer
+    numRep = aNumber;
+  }
+  else {
+    Serial.println("repetitions = 0!, defaulting it to 1!");
+    numRep = 1;
+  }
+}
 
 void duration() {
   char *arg;
   long int aNumber;
- 
+
   arg = sCmd.next();    // Get the next argument from the SerialCommand object buffer
   if (arg != NULL) {    // As long as it existed, take it
     Serial.print("stim duration ");
@@ -101,7 +138,7 @@ void duration() {
 void amplitude() {
   char *arg;
   float aNumber;
- 
+
   arg = sCmd.next();    // Get the next argument from the SerialCommand object buffer
   if (arg != NULL) {    // As long as it existed, take it
     Serial.print("stim amplitude ");
@@ -116,7 +153,7 @@ void amplitude() {
       Serial.println("defaulting to maximum amplitude 2.75");
       aNumber = 2.75;
       }//if number bigger than 2.75
-      
+
     stimAmp = aNumber;
   }
   else {
