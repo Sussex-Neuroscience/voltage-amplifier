@@ -7,7 +7,7 @@
 %%
 
 
-function stim_chan2 (duration, amplitude, repetitions)
+function done = stim_chan2 (duration, amplitude, repetitions)
 %change the next line to the com port the arduino is connected to:
 %ec: port = "COM5";
 port = "/dev/ttyACM0";

@@ -7,7 +7,7 @@
 %%
 
 
-function stim_chan1 (duration, amplitude, repetitions)
+function  done = stim_chan1 (duration, amplitude, repetitions)
 %change the next line to the com port the arduino is connected to:
 %ec: port = "COM5";
 port = "/dev/ttyACM1";
@@ -35,5 +35,5 @@ fprintf(x,"GO1");
 pause(appDuration+1);
 disp("stimulus off")
 fclose(x);
-
+done = "stimulus done";
 end
