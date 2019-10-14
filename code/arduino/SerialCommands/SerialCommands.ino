@@ -71,11 +71,7 @@ void LED_off() {
 }
 
 void stim_on1() {
-  Serial.println("Stimulus settings channel 1:");
-  Serial.print("Duration "); Serial.print(stimDur1); Serial.println(" milliseconds");
-  Serial.print("Analog output "); Serial.print(stimAmp1); Serial.println(" Volts");
-  Serial.print("number of trains "); Serial.println(numRep1);
-  Serial.println("stim on");
+
 
 
 
@@ -95,16 +91,15 @@ void stim_on1() {
     digitalWrite(transistorPort1, LOW);
     delay(stimDur1);
   }// end for
-  Serial.println("stim off");
+  Serial.println("Stimulus settings channel 1:");
+  Serial.print("Duration "); Serial.print(stimDur1); Serial.println(" milliseconds");
+  Serial.print("Analog output "); Serial.print(stimAmp1); Serial.println(" Volts");
+  Serial.print("number of trains "); Serial.println(numRep1);
 
 }
 
 void stim_on2() {
-  Serial.println("Stimulus settings channel 2:");
-  Serial.print("Duration "); Serial.print(stimDur2); Serial.println(" milliseconds");
-  Serial.print("Analog output "); Serial.print(stimAmp2); Serial.println(" Volts");
-  Serial.print("number of trains "); Serial.println(numRep2);
-  Serial.println("stim on");
+
 
 
 
@@ -124,6 +119,10 @@ void stim_on2() {
     delay(stimDur2);
   }// end for
   Serial.println("stim off");
+  Serial.println("Stimulus settings channel 2:");
+  Serial.print("Duration "); Serial.print(stimDur2); Serial.println(" milliseconds");
+  Serial.print("Analog output "); Serial.print(stimAmp2); Serial.println(" Volts");
+  Serial.print("number of trains "); Serial.println(numRep2);
 
 }
 

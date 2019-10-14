@@ -12,6 +12,7 @@ function  done = stim_chan1 (duration, amplitude, repetitions)
 %ec: port = "COM5";
 port = "/dev/ttyACM1";
 x=serial(port,'BAUD', 9600);
+%x.Terminator = 'CR';
 fopen(x);
 
 appDuration = duration*2*repetitions/1000;
@@ -19,21 +20,31 @@ duration = strcat("DUR1 ",int2str(duration));
 amplitude = strcat("AMP1 ",int2str(amplitude));
 repetitions = strcat("REP1 ",int2str(repetitions));
 
+temp = char(fread(x,7));
+
 fprintf(x,duration);
 pause(1)
+char(fread(x,x.BytesAvailable));
 
 fprintf(x,amplitude);
 pause(1)
+char(fread(x,x.BytesAvailable));
 
 fprintf(x,repetitions);
 pause(1)
+char(fread(x,x.BytesAvailable));
 
 input ("press any1 key to start")
-pause(1);
+pause(2);
+
 disp("stimulus on")
 fprintf(x,"GO1");
-pause(appDuration+1);
-disp("stimulus off")
+x.BytesAvailable
+while x.BytesAvailable == 0
+    x.BytesAvailable;
+end    
+    
+char(fread(x,x.BytesAvailable));
 fclose(x);
 done = "stimulus done";
 end
