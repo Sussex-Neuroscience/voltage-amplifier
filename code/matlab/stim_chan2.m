@@ -10,7 +10,7 @@
 function  done = stim_chan2 (duration, amplitude, repetitions)
 %change the next line to the com port the arduino is connected to:
 %ec: port = "COM5";
-port = "/dev/ttyACM1";
+port = "COM14";
 x=serial(port,'BAUD', 9600);
 %x.Terminator = 'CR';
 fopen(x);
@@ -34,7 +34,7 @@ fprintf(x,repetitions);
 pause(1)
 char(fread(x,x.BytesAvailable));
 
-input ("press any1 key to start")
+input ('press any1 key to start')
 pause(2);
 
 disp("stimulus on")
@@ -48,5 +48,6 @@ char(fread(x,x.BytesAvailable));
 fclose(x);
 done = "stimulus done";
 end
+
 
 
