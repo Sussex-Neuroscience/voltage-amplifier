@@ -1,0 +1,181 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Amplifier_Operational:LM741 U?
+U 1 1 5D9E17E1
+P 3850 3250
+F 0 "U?" H 4194 3296 50  0000 L CNN
+F 1 "LM741" H 3850 3400 50  0000 L CNN
+F 2 "" H 3900 3300 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm741.pdf" H 4000 3400 50  0001 C CNN
+	1    3850 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Battery_Cell BT?
+U 1 1 5D9E1D67
+P 2350 2900
+F 0 "BT?" H 2468 2996 50  0000 L CNN
+F 1 "Battery_Cell" H 2468 2905 50  0000 L CNN
+F 2 "" V 2350 2960 50  0001 C CNN
+F 3 "~" V 2350 2960 50  0001 C CNN
+	1    2350 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Battery_Cell BT?
+U 1 1 5D9E22ED
+P 2350 3350
+F 0 "BT?" H 2468 3446 50  0000 L CNN
+F 1 "Battery_Cell" H 2468 3355 50  0000 L CNN
+F 2 "" V 2350 3410 50  0001 C CNN
+F 3 "~" V 2350 3410 50  0001 C CNN
+	1    2350 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 3150 2350 3100
+Wire Wire Line
+	2350 3450 2350 4000
+Wire Wire Line
+	2350 4000 3750 4000
+Wire Wire Line
+	3750 4000 3750 3550
+Wire Wire Line
+	2350 2700 2350 2500
+Wire Wire Line
+	2350 2500 3750 2500
+Wire Wire Line
+	3750 2500 3750 2950
+$Comp
+L power:GND #PWR?
+U 1 1 5D9E2D66
+P 2150 3100
+F 0 "#PWR?" H 2150 2850 50  0001 C CNN
+F 1 "GND" V 2155 2972 50  0000 R CNN
+F 2 "" H 2150 3100 50  0001 C CNN
+F 3 "" H 2150 3100 50  0001 C CNN
+	1    2150 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2150 3100 2250 3100
+Connection ~ 2350 3100
+Wire Wire Line
+	2350 3100 2350 3000
+NoConn ~ 3850 3550
+NoConn ~ 3950 3550
+$Comp
+L Device:R_Small R?
+U 1 1 5D9E33CE
+P 4250 3350
+F 0 "R?" H 4191 3304 50  0000 R CNN
+F 1 "R_Small" H 4191 3395 50  0000 R CNN
+F 2 "" H 4250 3350 50  0001 C CNN
+F 3 "~" H 4250 3350 50  0001 C CNN
+	1    4250 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4150 3250 4250 3250
+Wire Wire Line
+	4250 3450 4250 3650
+Wire Wire Line
+	4250 3650 3550 3650
+Wire Wire Line
+	3550 3650 3550 3350
+$Comp
+L Device:R_Small R?
+U 1 1 5D9E48CB
+P 3250 3150
+F 0 "R?" V 3446 3150 50  0000 C CNN
+F 1 "R_Small" V 3355 3150 50  0000 C CNN
+F 2 "" H 3250 3150 50  0001 C CNN
+F 3 "~" H 3250 3150 50  0001 C CNN
+	1    3250 3150
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3350 3150 3550 3150
+Wire Wire Line
+	3150 3150 3050 3150
+$Comp
+L Device:R_Small R?
+U 1 1 5D9E5132
+P 3250 3350
+F 0 "R?" V 3446 3350 50  0000 C CNN
+F 1 "R_Small" V 3355 3350 50  0000 C CNN
+F 2 "" H 3250 3350 50  0001 C CNN
+F 3 "~" H 3250 3350 50  0001 C CNN
+	1    3250 3350
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3350 3350 3550 3350
+Connection ~ 3550 3350
+Wire Wire Line
+	3150 3350 2850 3350
+Wire Wire Line
+	2850 3350 2850 3100
+Wire Wire Line
+	2850 3100 2350 3100
+Connection ~ 4250 3250
+Wire Wire Line
+	2250 3100 2250 2400
+Wire Wire Line
+	2250 2400 2950 2400
+Connection ~ 2250 3100
+Wire Wire Line
+	2250 3100 2350 3100
+Wire Wire Line
+	2250 3100 2250 4100
+Wire Wire Line
+	2250 4100 4600 4100
+Wire Wire Line
+	4600 4100 4600 3400
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5D9E86EC
+P 5100 3300
+F 0 "J?" H 5128 3276 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 5128 3185 50  0000 L CNN
+F 2 "" H 5100 3300 50  0001 C CNN
+F 3 "~" H 5100 3300 50  0001 C CNN
+	1    5100 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 3250 4900 3300
+Wire Wire Line
+	4250 3250 4900 3250
+Wire Wire Line
+	4600 3400 4900 3400
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5D9E98E6
+P 3050 2000
+F 0 "J?" V 2988 2048 50  0000 L CNN
+F 1 "Conn_01x02_Female" V 2897 2048 50  0000 L CNN
+F 2 "" H 3050 2000 50  0001 C CNN
+F 3 "~" H 3050 2000 50  0001 C CNN
+	1    3050 2000
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	2950 2200 2950 2400
+Wire Wire Line
+	3050 2200 3050 3150
+$EndSCHEMATC
