@@ -1,0 +1,547 @@
+EESchema Schematic File Version 4
+LIBS:voltage_amplifier-cache
+LIBS:transistor_switch-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Device:Q_NPN_BCE Q2
+U 1 1 5D9BD4F9
+P 8650 3950
+F 0 "Q2" H 8840 3996 50  0000 L CNN
+F 1 "BC182L_NPN" H 8840 3905 50  0000 L CNN
+F 2 "" H 8850 4050 50  0001 C CNN
+F 3 "~" H 8650 3950 50  0001 C CNN
+	1    8650 3950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J6
+U 1 1 5D9BD4FF
+P 10350 3950
+F 0 "J6" H 10458 4131 50  0000 C CNN
+F 1 "Ard_5_pin" H 10458 4040 50  0000 C CNN
+F 2 "" H 10350 3950 50  0001 C CNN
+F 3 "~" H 10350 3950 50  0001 C CNN
+	1    10350 3950
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:R R10
+U 1 1 5D9BD505
+P 9350 3950
+F 0 "R10" V 9143 3950 50  0000 C CNN
+F 1 "270" V 9234 3950 50  0000 C CNN
+F 2 "" V 9280 3950 50  0001 C CNN
+F 3 "~" H 9350 3950 50  0001 C CNN
+	1    9350 3950
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	9200 3950 8850 3950
+$Comp
+L Device:R R9
+U 1 1 5D9BD50C
+P 8550 3250
+F 0 "R9" H 8480 3204 50  0000 R CNN
+F 1 "100k" H 8480 3295 50  0000 R CNN
+F 2 "" V 8480 3250 50  0001 C CNN
+F 3 "~" H 8550 3250 50  0001 C CNN
+	1    8550 3250
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	10150 3950 9500 3950
+$Comp
+L power:GND #PWR08
+U 1 1 5D9BD513
+P 10000 4050
+F 0 "#PWR08" H 10000 3800 50  0001 C CNN
+F 1 "GND" H 10005 3877 50  0000 C CNN
+F 2 "" H 10000 4050 50  0001 C CNN
+F 3 "" H 10000 4050 50  0001 C CNN
+	1    10000 4050
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 4050 10150 4050
+$Comp
+L power:GND #PWR07
+U 1 1 5D9BD51B
+P 8550 2850
+F 0 "#PWR07" H 8550 2600 50  0001 C CNN
+F 1 "GND" H 8555 2677 50  0000 C CNN
+F 2 "" H 8550 2850 50  0001 C CNN
+F 3 "" H 8550 2850 50  0001 C CNN
+	1    8550 2850
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	8550 2850 8550 3100
+$Comp
+L Connector:Conn_01x02_Male J5
+U 1 1 5D9BD522
+P 8550 4700
+F 0 "J5" V 8704 4512 50  0000 R CNN
+F 1 "DAC1_arduino" V 8613 4512 50  0000 R CNN
+F 2 "" H 8550 4700 50  0001 C CNN
+F 3 "~" H 8550 4700 50  0001 C CNN
+	1    8550 4700
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	8550 4500 8550 4150
+$Comp
+L power:GND #PWR06
+U 1 1 5D9BD529
+P 8450 4350
+F 0 "#PWR06" H 8450 4100 50  0001 C CNN
+F 1 "GND" V 8455 4222 50  0000 R CNN
+F 2 "" H 8450 4350 50  0001 C CNN
+F 3 "" H 8450 4350 50  0001 C CNN
+	1    8450 4350
+	0    1    -1   0   
+$EndComp
+Wire Wire Line
+	8450 4350 8450 4500
+$Comp
+L Amplifier_Operational:LM741 U1
+U 1 1 5D9E17E1
+P 4350 2950
+F 0 "U1" H 4694 2996 50  0000 L CNN
+F 1 "LM741" H 4350 3100 50  0000 L CNN
+F 2 "" H 4400 3000 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm741.pdf" H 4500 3100 50  0001 C CNN
+	1    4350 2950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Battery_Cell BT1
+U 1 1 5D9E1D67
+P 4000 4450
+F 0 "BT1" H 4118 4546 50  0000 L CNN
+F 1 "Battery_Cell" H 4118 4455 50  0000 L CNN
+F 2 "" V 4000 4510 50  0001 C CNN
+F 3 "~" V 4000 4510 50  0001 C CNN
+	1    4000 4450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:Battery_Cell BT2
+U 1 1 5D9E22ED
+P 4450 4450
+F 0 "BT2" H 4568 4546 50  0000 L CNN
+F 1 "Battery_Cell" H 4568 4455 50  0000 L CNN
+F 2 "" V 4450 4510 50  0001 C CNN
+F 3 "~" V 4450 4510 50  0001 C CNN
+	1    4450 4450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4250 4450 4200 4450
+Wire Wire Line
+	4550 4450 4700 4450
+Wire Wire Line
+	5100 4450 5100 3050
+Wire Wire Line
+	5100 3050 4650 3050
+Wire Wire Line
+	3800 4450 3600 4450
+$Comp
+L power:GND #PWR04
+U 1 1 5D9E2D66
+P 4200 4650
+F 0 "#PWR04" H 4200 4400 50  0001 C CNN
+F 1 "GND" V 4205 4522 50  0000 R CNN
+F 2 "" H 4200 4650 50  0001 C CNN
+F 3 "" H 4200 4650 50  0001 C CNN
+	1    4200 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4200 4650 4200 4550
+Connection ~ 4200 4450
+Wire Wire Line
+	4200 4450 4100 4450
+NoConn ~ 4650 2950
+NoConn ~ 4650 2850
+$Comp
+L Device:R_Small R4
+U 1 1 5D9E33CE
+P 4450 2550
+F 0 "R4" H 4391 2504 50  0000 R CNN
+F 1 "2.2k" H 4391 2595 50  0000 R CNN
+F 2 "" H 4450 2550 50  0001 C CNN
+F 3 "~" H 4450 2550 50  0001 C CNN
+	1    4450 2550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4350 2650 4350 2550
+Wire Wire Line
+	4550 2550 4750 2550
+Wire Wire Line
+	4750 2550 4750 3250
+Wire Wire Line
+	4750 3250 4450 3250
+$Comp
+L Device:R_Small R3
+U 1 1 5D9E48CB
+P 4250 3550
+F 0 "R3" V 4446 3550 50  0000 C CNN
+F 1 "1k" V 4355 3550 50  0000 C CNN
+F 2 "" H 4250 3550 50  0001 C CNN
+F 3 "~" H 4250 3550 50  0001 C CNN
+	1    4250 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4250 3450 4250 3250
+Wire Wire Line
+	4250 3650 4250 3750
+$Comp
+L Device:R_Small R5
+U 1 1 5D9E5132
+P 4450 3550
+F 0 "R5" V 4646 3550 50  0000 C CNN
+F 1 "1k" V 4555 3550 50  0000 C CNN
+F 2 "" H 4450 3550 50  0001 C CNN
+F 3 "~" H 4450 3550 50  0001 C CNN
+	1    4450 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4450 3450 4450 3250
+Connection ~ 4450 3250
+Wire Wire Line
+	4450 3650 4450 3950
+Wire Wire Line
+	4450 3950 4200 3950
+Wire Wire Line
+	4200 3950 4200 4450
+Connection ~ 4350 2550
+Connection ~ 4200 4550
+Wire Wire Line
+	4200 4550 4200 4450
+Wire Wire Line
+	4200 4550 5200 4550
+Wire Wire Line
+	5200 4550 5200 4350
+Wire Wire Line
+	5200 2200 4500 2200
+$Comp
+L Connector:Conn_Coaxial J3
+U 1 1 5D9E86EC
+P 4400 1700
+F 0 "J3" H 4428 1676 50  0000 L CNN
+F 1 "to biopac" H 4428 1585 50  0000 L CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 4400 1700 50  0001 C CNN
+F 3 "~" H 4400 1700 50  0001 C CNN
+	1    4400 1700
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4350 1900 4400 1900
+Wire Wire Line
+	4350 2550 4350 1900
+Wire Wire Line
+	4500 2200 4500 1900
+$Comp
+L Amplifier_Operational:LM741 U2
+U 1 1 5D9F27CD
+P 6950 2750
+F 0 "U2" H 7294 2796 50  0000 L CNN
+F 1 "LM741" H 6950 2900 50  0000 L CNN
+F 2 "" H 7000 2800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm741.pdf" H 7100 2900 50  0001 C CNN
+	1    6950 2750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6850 4250 6800 4250
+Wire Wire Line
+	7150 4250 7700 4250
+Wire Wire Line
+	7700 4250 7700 2850
+Wire Wire Line
+	7700 2850 7250 2850
+Wire Wire Line
+	6400 4250 6200 4250
+Wire Wire Line
+	6200 4250 6200 2850
+Wire Wire Line
+	6200 2850 6650 2850
+$Comp
+L power:GND #PWR05
+U 1 1 5D9F27E6
+P 6800 4450
+F 0 "#PWR05" H 6800 4200 50  0001 C CNN
+F 1 "GND" V 6805 4322 50  0000 R CNN
+F 2 "" H 6800 4450 50  0001 C CNN
+F 3 "" H 6800 4450 50  0001 C CNN
+	1    6800 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 4450 6800 4350
+Connection ~ 6800 4250
+Wire Wire Line
+	6800 4250 6700 4250
+NoConn ~ 7250 2750
+NoConn ~ 7250 2650
+$Comp
+L Device:R_Small R7
+U 1 1 5D9F27F1
+P 7050 2350
+F 0 "R7" H 6991 2304 50  0000 R CNN
+F 1 "2.2k" H 6991 2395 50  0000 R CNN
+F 2 "" H 7050 2350 50  0001 C CNN
+F 3 "~" H 7050 2350 50  0001 C CNN
+	1    7050 2350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6950 2450 6950 2350
+Wire Wire Line
+	7150 2350 7350 2350
+Wire Wire Line
+	7350 2350 7350 3050
+Wire Wire Line
+	7350 3050 7050 3050
+$Comp
+L Device:R_Small R6
+U 1 1 5D9F27FB
+P 6850 3350
+F 0 "R6" V 7046 3350 50  0000 C CNN
+F 1 "1k" V 6955 3350 50  0000 C CNN
+F 2 "" H 6850 3350 50  0001 C CNN
+F 3 "~" H 6850 3350 50  0001 C CNN
+	1    6850 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6850 3250 6850 3050
+Wire Wire Line
+	6850 3450 6850 3550
+$Comp
+L Device:R_Small R8
+U 1 1 5D9F2803
+P 7050 3350
+F 0 "R8" V 7246 3350 50  0000 C CNN
+F 1 "1k" V 7155 3350 50  0000 C CNN
+F 2 "" H 7050 3350 50  0001 C CNN
+F 3 "~" H 7050 3350 50  0001 C CNN
+	1    7050 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7050 3250 7050 3050
+Connection ~ 7050 3050
+Wire Wire Line
+	7050 3450 7050 3750
+Wire Wire Line
+	7050 3750 6800 3750
+Wire Wire Line
+	6800 3750 6800 4250
+Connection ~ 6950 2350
+Connection ~ 6800 4350
+Wire Wire Line
+	6800 4350 6800 4250
+Wire Wire Line
+	6800 4350 7800 4350
+Wire Wire Line
+	7800 4350 7800 2000
+Wire Wire Line
+	7800 2000 7100 2000
+$Comp
+L Connector:Conn_Coaxial J4
+U 1 1 5D9F2816
+P 7000 1500
+F 0 "J4" H 7028 1476 50  0000 L CNN
+F 1 "To biopac" H 7028 1385 50  0000 L CNN
+F 2 "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal" H 7000 1500 50  0001 C CNN
+F 3 "~" H 7000 1500 50  0001 C CNN
+	1    7000 1500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6950 1700 7000 1700
+Wire Wire Line
+	6950 2350 6950 1700
+Wire Wire Line
+	7100 2000 7100 1700
+Wire Wire Line
+	6400 4250 6400 5250
+Wire Wire Line
+	6400 5250 3600 5250
+Wire Wire Line
+	3600 5250 3600 4450
+Wire Wire Line
+	6700 4250 6700 5050
+Wire Wire Line
+	6700 5050 4100 5050
+Wire Wire Line
+	4100 5050 4100 4450
+Connection ~ 4100 4450
+Wire Wire Line
+	6850 4250 6850 4850
+Wire Wire Line
+	6850 4850 4250 4850
+Wire Wire Line
+	4250 4850 4250 4450
+Connection ~ 4250 4450
+Wire Wire Line
+	7150 4250 7150 4750
+Wire Wire Line
+	7150 4750 4700 4750
+Wire Wire Line
+	4700 4750 4700 4450
+Connection ~ 4700 4450
+Wire Wire Line
+	4700 4450 5100 4450
+Connection ~ 3600 4450
+Wire Wire Line
+	3600 3050 4050 3050
+Wire Wire Line
+	3600 4450 3600 3050
+$Comp
+L Device:Q_NPN_BCE Q1
+U 1 1 5D8A091B
+P 2750 4150
+F 0 "Q1" H 2940 4196 50  0000 L CNN
+F 1 "BC182L_NPN" H 2940 4105 50  0000 L CNN
+F 2 "" H 2950 4250 50  0001 C CNN
+F 3 "~" H 2750 4150 50  0001 C CNN
+	1    2750 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 5D8A280C
+P 1050 4150
+F 0 "J1" H 1158 4331 50  0000 C CNN
+F 1 "Ard_6_pin" H 1158 4240 50  0000 C CNN
+F 2 "" H 1050 4150 50  0001 C CNN
+F 3 "~" H 1050 4150 50  0001 C CNN
+	1    1050 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5D8A39C8
+P 2050 4150
+F 0 "R1" V 1843 4150 50  0000 C CNN
+F 1 "270" V 1934 4150 50  0000 C CNN
+F 2 "" V 1980 4150 50  0001 C CNN
+F 3 "~" H 2050 4150 50  0001 C CNN
+	1    2050 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2200 4150 2550 4150
+$Comp
+L Device:R R2
+U 1 1 5D8A40B7
+P 2850 3450
+F 0 "R2" H 2780 3404 50  0000 R CNN
+F 1 "100k" H 2780 3495 50  0000 R CNN
+F 2 "" V 2780 3450 50  0001 C CNN
+F 3 "~" H 2850 3450 50  0001 C CNN
+	1    2850 3450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1250 4150 1900 4150
+$Comp
+L power:GND #PWR01
+U 1 1 5D8A5853
+P 1400 4250
+F 0 "#PWR01" H 1400 4000 50  0001 C CNN
+F 1 "GND" H 1405 4077 50  0000 C CNN
+F 2 "" H 1400 4250 50  0001 C CNN
+F 3 "" H 1400 4250 50  0001 C CNN
+	1    1400 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 4250 1250 4250
+$Comp
+L power:GND #PWR02
+U 1 1 5D8A668A
+P 2850 3050
+F 0 "#PWR02" H 2850 2800 50  0001 C CNN
+F 1 "GND" H 2855 2877 50  0000 C CNN
+F 2 "" H 2850 3050 50  0001 C CNN
+F 3 "" H 2850 3050 50  0001 C CNN
+	1    2850 3050
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2850 3050 2850 3300
+Wire Wire Line
+	2850 4700 2850 4350
+$Comp
+L Connector:Conn_01x02_Male J2
+U 1 1 5D8A6B9A
+P 2850 4900
+F 0 "J2" V 3004 4712 50  0000 R CNN
+F 1 "DAC0_arduino" V 2913 4712 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 2850 4900 50  0001 C CNN
+F 3 "~" H 2850 4900 50  0001 C CNN
+	1    2850 4900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2850 3950 2850 3750
+Wire Wire Line
+	4250 3750 2850 3750
+Connection ~ 2850 3750
+Wire Wire Line
+	2850 3750 2850 3600
+Wire Wire Line
+	8550 3400 8550 3550
+Wire Wire Line
+	8550 3550 6850 3550
+Connection ~ 8550 3550
+Wire Wire Line
+	8550 3550 8550 3750
+Wire Wire Line
+	5200 4350 6800 4350
+Connection ~ 5200 4350
+Wire Wire Line
+	5200 4350 5200 2200
+Wire Wire Line
+	2950 4700 2950 4550
+$Comp
+L power:GND #PWR03
+U 1 1 5DAF6627
+P 3200 4550
+F 0 "#PWR03" H 3200 4300 50  0001 C CNN
+F 1 "GND" H 3205 4377 50  0000 C CNN
+F 2 "" H 3200 4550 50  0001 C CNN
+F 3 "" H 3200 4550 50  0001 C CNN
+	1    3200 4550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2950 4550 3200 4550
+Wire Wire Line
+	7100 1700 7200 1700
+Wire Wire Line
+	7200 1700 7200 1500
+Wire Wire Line
+	4500 1900 4600 1900
+Wire Wire Line
+	4600 1900 4600 1700
+$EndSCHEMATC
