@@ -1,0 +1,10 @@
+References,Qty,Description,Manufacturer,MPN,Manufacturer_1,MPN_2,Manufacturer_3,MPN_4,Manufacturer_5,MPN_6,Manufacturer_7,MPN_8,Digikey,Mouser,RS,Newark,Farnell
+R1;R10,2,270 ohm,RS-pro,707-7625,,,,,,,,,,,707-7625,,
+R2;R9 ,2,100k ohm,TE connectivity,LR1F100k,,,,,,,,,,,125-1168,,
+R3;R5;R6;R8,4,1k ohm,Vishay,MRS25000C1001FCT00,,,,,,,,,,,683-3165,,
+R4;R7,2,2.2k ohm,Vishay,MRS25000C2201FCT00,,,,,,,,,,,683-3449,,
+"J1,J2",2,BNC connector,Amphenol,B6252H7-NPP3G-50,,,,,,,,,,,700-9423,,
+"Q1,Q2",2,BC182L NPN transistor,,,,,,,,,,,,,,,
+U1;U2,2,IC socket,Assmann,A 08-LC-TT,,,,,,,,,,,674-2435,,
+U1;U2,2,LM741 opamp,Texas instruments,LM741CN/NOPB,,,,,,,,,,,535-9969,,
+B1;B2,2,Battery clips,Keystone,1294,,,,,,,,,,,172-5845,,
