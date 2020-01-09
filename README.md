@@ -41,12 +41,12 @@ code for an electric stimulator using BIOPAC system
 
 
 
-5. run Matlab
+~~5. run Matlab~~
 
-6. change to the folder containing the functions (stim_chan1.m and stim_chan2.m)
+~~6. change to the folder containing the functions (stim_chan1.m and stim_chan2.m)~~
 
-7. call the desired function ex: stim_chan1(duration, amplitude, repetitions)
-  - the function will prompt the user to press a key to start stimulation.
+~~7. call the desired function ex: stim_chan1(duration, amplitude, repetitions)~~
+  ~~- the function will prompt the user to press a key to start stimulation.~~
 
 ---
 
@@ -58,5 +58,3 @@ code for an electric stimulator using BIOPAC system
   - [Here]((/hardware/transistor_switch/schematic.pdf)) is the diagram for the transistor switches
 
   ---
-
-  The arduino output voltage leads to stimuli that only mildly stimulate subjects skins. Therefore a further amplification is necessary. Taking in consideration the use with human participants, we are developing a little battery run amplifier capped at +-9V.
