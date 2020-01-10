@@ -1,52 +1,47 @@
-# electric-stimulator
-code for an electric stimulator using BIOPAC system
+# Arduino Due compatible voltage amplifier
 
+Hi! This repository contains all the necessary documents to replicate an arduino Due compatible voltage amplifier.
 
-~~## project documentation:~~
-~~- this project is documented using [Hardocs](https://gitlab.com/go-commons/hardocs)~~
-~~- details on how to run the code can be found in:~~
+This system was developed as part of a research project of the [Ward Lab](http://www.sussex.ac.uk/profiles/92444/research). It is to be used with a stimulus isolation adaptor from BIOPAC, more specifically one of the models that provide isolated voltage: https://www.biopac.com/product/stimulus-isolation-adapters/
 
+The idea is simple, we use the true analog output ports from the Arduino DUE as an independent channel and amplify their signals using Operational amplifiers. In this case two [LM741](https://www.biopac.com/product/stimulus-isolation-adapters/) from Texas instruments. Using serial communication the system can be controlled in various ways, from the Arduino IDE to whatever programming languages (Python, Matlab, etc).
 
-## setting up system:
+In [Hardware](./hardware) readers are going to find the information necessary (gerbers, bill of materials) to order components and replicate the board.
+
+In [code](./code) readers are going to find the arduino code needed to for sending serial commands to the arduino and getting voltage signals out of the 2 different analog channels. There is also example code in Matlab to show how to control the arduino (readers should note that the Matlab Arduino libraries are not being used. Just plain serial commands).
 
 ---
 
-1. Install Matlab
- - this project runs without the arduino addons for Matlab, instead we are using "simple" serial communication.
+## setting up system (bare minimum):
 
-2. Install Arduino IDE and its drivers: https://www.arduino.cc/en/Main/Software
-3. Install the arduino DUE support (SAM boards) using the board manager tool in the IDE (tools > boards > boards_manager)
 
-4. Download and unzip the serial communication library (https://github.com/kroimon/Arduino-SerialCommand). Place the unzipped folder on the Arduino Libraries folder.
 
-5. test that everything is working by opening the serial communication library example code and uploading it to the board.
+1. Install Arduino IDE and its drivers: https://www.arduino.cc/en/Main/Software
+2. Install the arduino DUE support (SAM boards) using the board manager tool in the IDE (tools > boards > boards_manager)
+
+3. Download and unzip the serial communication library (https://github.com/kroimon/Arduino-SerialCommand). Place the unzipped folder on the Arduino Libraries folder.
+
+4. test that everything is working by opening the serial communication library example code and uploading it to the board.
 
   - Emit a couple of commands (eg: ON, OFF, HELLO) using the serial monitor (can be accessed via the icon on the top right corner of the Arduino IDE).
 
 
-6. Upload the "SerialCommands" sketch to the arduino board and open the Serial monitor
-- channel1
+5. Upload the "SerialCommands" sketch to the arduino board and open the Serial monitor
 
-    - DUR1 ZZZ sets the stimulus duration in millisec (where ZZZ is the desired time) for channel 1
-    - REP1 WWW sets the number of pulses for channel 1
-    - AMP1 YYY sets the voltage level, in between 0.55 and 2.75. for channel 1
+- **channel1**  
+    - DUR1 ZZZ sets the stimulus duration in milliseconds (where ZZZ should be replaced by the time desired) for channel 1.    
+     - ZZZ specifies the amount of time of ON and OFF phase of the pulse (ie ZZZ=10 defines a pulse that is 10ms on and 10ms off).  
+    - REP1 WWW sets the number of pulses for channel 1.  
+    - AMP1 YYY sets the voltage level, in between 0.55 and 2.75. for channel 1.  
     - GO1 starts the stimulation in channel 1.  
 
 
-  - channel 2
-    - DUR2 ZZZ sets the stimulus duration in milliscec(where ZZZ is the desired time) for channel 2
-    - REP2 WWW sets the number of pulses for channel 2
-    - AMP2 YYY sets the voltage level, in between 0.55 and 2.75. for channel 2
-    - GO2 starts the stimulation in channel 2.
-
-
-
-~~5. run Matlab~~
-
-~~6. change to the folder containing the functions (stim_chan1.m and stim_chan2.m)~~
-
-~~7. call the desired function ex: stim_chan1(duration, amplitude, repetitions)~~
-  ~~- the function will prompt the user to press a key to start stimulation.~~
+  - **channel 2**  
+    - DUR2 ZZZ sets the stimulus duration in milliseconds(where ZZZ should be replaced by the time desired) for channel 2.  
+      - ZZZ specifies the amount of time of ON and OFF phase of the pulse (ie ZZZ=10 defines a pulse that is 10ms on and 10ms off).  
+    - REP2 WWW sets the number of pulses for channel 2.  
+    - AMP2 YYY sets the voltage level, in between 0.55 and 2.75. for channel 2.  
+    - GO2 starts the stimulation in channel 2.  
 
 ---
 
