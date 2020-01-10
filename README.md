@@ -34,7 +34,7 @@ In [code](./code) readers are going to find the arduino code needed to for sendi
     - DUR1 ZZZ sets the stimulus duration in milliseconds (where ZZZ should be replaced by the time desired) for channel 1.    
       - ZZZ specifies the amount of time of ON and OFF phase of the pulse (ie ZZZ=10 defines a pulse that is 10ms on and 10ms off).
     - REP1 WWW sets the number of pulses for channel 1.  
-    - AMP1 YYY sets the voltage level, in between 0.55 and 2.75. for channel 1.  
+    - AMP1 YYY sets the voltage level, in between 550 and 2750 for channel 1.  
     - GO1 starts the stimulation in channel 1.  
 
 
@@ -42,7 +42,7 @@ In [code](./code) readers are going to find the arduino code needed to for sendi
     - DUR2 ZZZ sets the stimulus duration in milliseconds(where ZZZ should be replaced by the time desired) for channel 2.    
       - ZZZ specifies the amount of time of ON and OFF phase of the pulse (ie ZZZ=10 defines a pulse that is 10ms on and 10ms off).    
     - REP2 WWW sets the number of pulses for channel 2.    
-    - AMP2 YYY sets the voltage level, in between 0.55 and 2.75. for channel 2.    
+    - AMP2 YYY sets the voltage level, in between 550 and 2750 milliVolts for channel 2.    
     - GO2 starts the stimulation in channel 2.    
 
 ---
