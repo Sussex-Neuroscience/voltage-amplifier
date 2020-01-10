@@ -1,0 +1,5 @@
+summary: A voltage amplifier compatible with Arduino DUE
+site: https://github.com/Sussex-Neuroscience/voltage-amplifier
+color: green
+bom: hardware/trans_switch_volt_amp/1-click-bom.csv
+gerbers: hardware/trans_switch_volt_amp/gerber
