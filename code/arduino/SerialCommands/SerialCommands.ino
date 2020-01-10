@@ -10,7 +10,7 @@
 // channel 1
 int transistorPort1 = 6;
 long int stimDur1 = 0;
-float stimAmp1 = 0.55;
+float stimAmp1 = 55;
 int mappedOut1 = 0;
 int numRep1 = 1;
 int DACport1 = DAC0;
@@ -18,7 +18,7 @@ int DACport1 = DAC0;
 // channel 2
 int transistorPort2 = 5;
 long int stimDur2 = 0;
-float stimAmp2 = 0.55;
+float stimAmp2 = 55;
 int mappedOut2 = 0;
 int numRep2 = 1;
 int DACport2 = DAC1;
@@ -39,16 +39,16 @@ void setup() {
   // Setup callbacks for SerialCommand commands
   sCmd.addCommand("ON",    LED_on);          // Turns LED on
   sCmd.addCommand("OFF",   LED_off);         // Turns LED off
-  
+
   sCmd.addCommand("DUR1",   duration1);        // stimulus duration (milliseconds) channel 1
   sCmd.addCommand("AMP1",   amplitude1);       // stimulus amplitude (volts) channel 1
-  sCmd.addCommand("REP1",   repetitions1);       // nuber of trains channel 1 
+  sCmd.addCommand("REP1",   repetitions1);       // nuber of trains channel 1
   sCmd.addCommand("GO1",    stim_on1);         // Start stimulation channel 1
   sCmd.addCommand("DUR2",   duration2);        // stimulus duration (milliseconds) channel 2
   sCmd.addCommand("AMP2",   amplitude2);       // stimulus amplitude (volts) channel 2
   sCmd.addCommand("REP2",   repetitions2);       // nuber of trains channel 2
   sCmd.addCommand("GO2",    stim_on2);         // Start stimulation channel 2
-  
+
   sCmd.addCommand("HELLO", sayHello);        // Echos the string argument back
   sCmd.addCommand("P",     processCommand);  // Converts two arguments to integers and echos them back
   sCmd.setDefaultHandler(unrecognized);      // Handler for command that isn't matched  (says "What?")
@@ -82,7 +82,7 @@ void stim_on1() {
   // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut1 = map(int(stimAmp1*100), 55, 275, 0, 4095);
+  mappedOut1 = map(55, 2750, 0, 4095);
 
   for (int i=0; i <= numRep1; i++){
     digitalWrite(arduinoLED, HIGH);
@@ -111,7 +111,7 @@ void stim_on2() {
   // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut2 = map(int(stimAmp2*100), 55, 275, 0, 4095);
+  mappedOut2 = map(55, 2750, 0, 4095);
 
   for (int i=0; i <= numRep2; i++){
     digitalWrite(arduinoLED, HIGH);
