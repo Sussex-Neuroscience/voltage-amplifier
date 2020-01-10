@@ -82,7 +82,7 @@ void stim_on1() {
   // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut1 = map(55, 2750, 0, 4095);
+  mappedOut1 = map(550, 2750, 0, 4095);
 
   for (int i=0; i <= numRep1; i++){
     digitalWrite(arduinoLED, HIGH);
@@ -111,7 +111,7 @@ void stim_on2() {
   // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut2 = map(55, 2750, 0, 4095);
+  mappedOut2 = map(550, 2750, 0, 4095);
 
   for (int i=0; i <= numRep2; i++){
     digitalWrite(arduinoLED, HIGH);

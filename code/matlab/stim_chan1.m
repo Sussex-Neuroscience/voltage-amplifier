@@ -15,8 +15,6 @@ x=serial(port,'BAUD', 9600);
 %x.Terminator = 'CR';
 fopen(x);
 
-input ('press any1 key to start')
-pause(2);
 
 appDuration = duration*2*repetitions/1000;
 duration = strcat("DUR1 ",int2str(duration));
@@ -40,15 +38,14 @@ char(fread(x,x.BytesAvailable));
 
 
 disp("stimulus on")
-% the code in this section will be called to present stimulus 
+% the code in this section will be called to present stimulus
 fprintf(x,"GO1");
 x.BytesAvailable
 while x.BytesAvailable == 0
     x.BytesAvailable;
-end    
+end
 char(fread(x,x.BytesAvailable));
-% end of - the code in this section will be called to present stimulus 
+% end of - the code in this section will be called to present stimulus
 fclose(x);
 done = "stimulus done";
 end
-
