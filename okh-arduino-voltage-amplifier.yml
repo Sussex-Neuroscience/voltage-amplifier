@@ -39,7 +39,7 @@ documentation-language: EN-UK
 title: Arduino Voltage Amplifier           # required | text | A title to identify the thing
 
 description: |                             # required | paragraph
-  
+  a voltage amplifier based on LM741, run with 9V batteries and shaped as an Arduino Due shield
 
 #intended-use: |                            # recommended | Paragraph
 #  [value]
@@ -52,8 +52,8 @@ keywords:                                  # At least one keyword is recommended
 
 project-link: https://github.com/Sussex-Neuroscience/voltage-amplifier     # At least project-link or documentation-home is required, otherwise recommended | absolute path URL
 
-#health-safety-notice: |                    # paragraph
-#  [value]
+health-safety-notice: |                    # paragraph
+  This device can generate high voltages which can be dangerous! make sure you take all the necessary safety precautions for safe use.
 
 #contact:
 #  name: [value]                            # text
@@ -68,13 +68,13 @@ contributors:                              # recommended
     affiliation: University of Sussex       # text
     email: a.maia-chagas@sussex.ac.uk                         # email address
 
-#image: [value]                             # recommended | absolute or relative path
+image: https://raw.githubusercontent.com/Sussex-Neuroscience/voltage-amplifier/master/featured.jpg                             # recommended | absolute or relative path
 
-#version: [value]                           # text
+version: 0.1                           # text
 
 #development-stage: [value]                 # text
 
-#made: [true/false]                         # boolean - true or false
+made: true                         # boolean - true or false
 
 #made-independently: [true/false]           # boolean - true or false
 
