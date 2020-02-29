@@ -12,6 +12,9 @@ In [Hardware](./hardware) readers are going to find the information necessary (g
 
 In [code](./code) readers are going to find the arduino code needed to for sending serial commands to the arduino and getting voltage signals out of the 2 different analog channels. There is also example code in Matlab to show how to control the arduino (readers should note that the Matlab Arduino libraries are not being used. Just plain serial commands).
 
+
+![](./featured.jpg)
+
 ---
 
 ## setting up system (bare minimum):

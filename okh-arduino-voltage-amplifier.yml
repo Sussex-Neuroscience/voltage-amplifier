@@ -9,7 +9,7 @@
 
 # Manifest metadata
 
-date-created: 2019-11-16                   # YYYY-MM-DD
+date-created: 2020-02-29                   # YYYY-MM-DD
 
 #date-updated: [value]                      # YYYY-MM-DD
 
@@ -39,16 +39,18 @@ documentation-language: EN-UK
 title: Arduino Voltage Amplifier           # required | text | A title to identify the thing
 
 description: |                             # required | paragraph
-  [value]
+  
 
 #intended-use: |                            # recommended | Paragraph
 #  [value]
 
 keywords:                                  # At least one keyword is recommended | text array
-  - [keyword 1]
-  - [keyword 2]
+  - psychophysics
+  - Neuroscience
+  - Arduino due
+  - biopac
 
-project-link: [value]                      # At least project-link or documentation-home is required, otherwise recommended | absolute path URL
+project-link: https://github.com/Sussex-Neuroscience/voltage-amplifier     # At least project-link or documentation-home is required, otherwise recommended | absolute path URL
 
 #health-safety-notice: |                    # paragraph
 #  [value]
@@ -62,9 +64,9 @@ project-link: [value]                      # At least project-link or documentat
 #      user-handle: [value]                 # text
 
 contributors:                              # recommended
-  - name: [contributor 1]                  # text
-#    affiliation: [value]                   # text
-#    email: [value]                         # email address
+  - name: Andre Maia Chagas                   # text
+    affiliation: University of Sussex       # text
+    email: a.maia-chagas@sussex.ac.uk                         # email address
 
 #image: [value]                             # recommended | absolute or relative path
 
@@ -103,18 +105,18 @@ contributors:                              # recommended
 # License
 
 license:                                   # At least one license is required | The format should be an SPDX identifier. See https://spdx.org/licenses/hardware: [value] # recommended | The license under which the hardware is released
-  hardware: [value]                        # recommended | The license under which the documentation is released
-  documentation: [value]                   # recommended | The license under which the documentation is released
-  software: [value]                        # recommended where software is used | The license under which the software is released
+  hardware: CERN OHL v1.2                  # recommended | The license under which the documentation is released
+  documentation: GPL V3                   # recommended | The license under which the documentation is released
+  software: CC-BY-SA 4.0                        # recommended where software is used | The license under which the software is released
 
-#licensor:
-#  name: [value]                            # text
-#  affiliation: [value]                     # text
-#  email: [value]                           # email address
+licensor:
+  name: Andre Maia Chagas                            # text
+  affiliation: University of Sussex                     # text
+  email: a.maia-chagas@sussex.ac.uk                           # email address
 
 # Documentation
 
-documentation-home: [value]               # At least one of the project-link or documentation-home fields is required | absolute path
+documentation-home: https://github.com/Sussex-Neuroscience/voltage-amplifier               # At least one of the project-link or documentation-home fields is required | absolute path
 
 #archive-download: [value]                 # Absolute or relative path
 
