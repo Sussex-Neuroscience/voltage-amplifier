@@ -1,6 +1,7 @@
 // Code to set and start electrical stimulation using an Arduino DUE and BIOPAC system
 // CC BY SA 4.0 20190924
 // Chagas AM.
+// 
 // Based on Demo Code for SerialCommand Library by Steven Cogswell May 2011
 
 #include <SerialCommand.h>
@@ -10,7 +11,7 @@
 // channel 1
 int transistorPort1 = 6;
 long int stimDur1 = 0;
-float stimAmp1 = 55;
+float stimAmp1 = 550;
 int mappedOut1 = 0;
 int numRep1 = 1;
 int DACport1 = DAC0;
@@ -18,7 +19,7 @@ int DACport1 = DAC0;
 // channel 2
 int transistorPort2 = 5;
 long int stimDur2 = 0;
-float stimAmp2 = 55;
+float stimAmp2 = 550;
 int mappedOut2 = 0;
 int numRep2 = 1;
 int DACport2 = DAC1;
@@ -72,28 +73,30 @@ void LED_off() {
 
 void stim_on1() {
   Serial.println("Stimulus settings channel 1:");
-  Serial.print("Duration "); Serial.print(stimDur1); Serial.println(" milliseconds");
-  Serial.print("Analog output "); Serial.print(stimAmp1); Serial.println(" Volts");
+  Serial.print("Duration "); Serial.print(stimDur1); Serial.println(" microsseconds");
+  Serial.print("Analog output "); Serial.print(stimAmp1); Serial.println(" millivolts");
   Serial.print("number of trains "); Serial.println(numRep1);
   Serial.println("stim on");
 
 
 
-  // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
+  // we need to map the voltage level to integer in between 0 and 4095)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut1 = map(550, 2750, 0, 4095);
+  mappedOut1 = map(stimAmp1, 550, 2750, 0, 4095);
 
   for (int i=0; i <= numRep1; i++){
     digitalWrite(arduinoLED, HIGH);
     digitalWrite(transistorPort1, HIGH);
     //Serial.println(mappedOut1);
     analogWrite(DACport1,mappedOut1);
-    delay(stimDur1);
+    delayMicroseconds(stimDur1);
+    //delay(stimDur1);
     analogWrite(DACport1,0);
     digitalWrite(arduinoLED, LOW);
     digitalWrite(transistorPort1, LOW);
-    delay(stimDur1);
+    delayMicroseconds(stimDur1);
+    //delay(stimDur1);
   }// end for
   Serial.println("stim off");
 
@@ -101,31 +104,37 @@ void stim_on1() {
 
 void stim_on2() {
   Serial.println("Stimulus settings channel 2:");
-  Serial.print("Duration "); Serial.print(stimDur2); Serial.println(" milliseconds");
-  Serial.print("Analog output "); Serial.print(stimAmp2); Serial.println(" Volts");
+  Serial.print("Duration "); Serial.print(stimDur2); Serial.println(" microsseconds");
+  Serial.print("Analog output "); Serial.print(stimAmp2); Serial.println(" millivolts");
   Serial.print("number of trains "); Serial.println(numRep2);
   Serial.println("stim on");
 
 
 
-  // we need to map the voltage level to integer in between 0 and 4096)but map function only takes integers,
+  // we need to map the voltage level to integer in between 0 and 4095)but map function only takes integers,
   // so we make sure our floats are integers (analog output has a range between 0.55 to 2.75, we multiply that
   // by 100 as well as the stimAmp value)
-  mappedOut2 = map(550, 2750, 0, 4095);
+  
+  mappedOut2 = map(stimAmp2, 550, 2750, 0, 4095);
 
   for (int i=0; i <= numRep2; i++){
     digitalWrite(arduinoLED, HIGH);
     digitalWrite(transistorPort2, HIGH);
     analogWrite(DACport2,mappedOut2);
-    delay(stimDur2);
+    //delay(stimDur2);
+    delayMicroseconds(stimDur2);
     analogWrite(DACport2,0);
     digitalWrite(arduinoLED, LOW);
     digitalWrite(transistorPort2, LOW);
-    delay(stimDur2);
+    //delay(stimDur2);
+    delayMicroseconds(stimDur2);
   }// end for
   Serial.println("stim off");
 
 }
+
+
+
 
 void repetitions1() {
   char *arg;
@@ -207,16 +216,16 @@ void amplitude1() {
   if (arg != NULL) {    // As long as it existed, take it
     Serial.print("stim amplitude channel 1");
     Serial.println(arg);
-    aNumber = atof(arg);    // Converts a char string to an float
-    if (aNumber<0.55){
+    aNumber = atoi(arg);    // Converts a char string to an float
+    if (aNumber<550){
       Serial.println("defaulting to minimum amplitude 0.55");
-      aNumber = 0.55;
-      }//if number smaller than 0.55
+      aNumber = 550;
+      }//if number smaller than 550
 
-    if (aNumber>2.75){
-      Serial.println("defaulting to maximum amplitude 2.75");
-      aNumber = 2.75;
-      }//if number bigger than 2.75
+    if (aNumber>2750){
+      Serial.println("defaulting to maximum amplitude 2750");
+      aNumber = 2750;
+      }//if number bigger than 2750
 
     stimAmp1 = aNumber;
   }
@@ -234,15 +243,15 @@ void amplitude2() {
   if (arg != NULL) {    // As long as it existed, take it
     Serial.print("stim amplitude channel 2");
     Serial.println(arg);
-    aNumber = atof(arg);    // Converts a char string to an float
-    if (aNumber<0.55){
-      Serial.println("defaulting to minimum amplitude 0.55");
-      aNumber = 0.55;
+    aNumber = atoi(arg);    // Converts a char string to an float
+    if (aNumber<550){
+      Serial.println("defaulting to minimum amplitude 550");
+      aNumber = 550;
       }//if number smaller than 0.55
 
-    if (aNumber>2.75){
-      Serial.println("defaulting to maximum amplitude 2.75");
-      aNumber = 2.75;
+    if (aNumber>2750){
+      Serial.println("defaulting to maximum amplitude 2750");
+      aNumber = 2750;
       }//if number bigger than 2.75
 
     stimAmp2 = aNumber;
